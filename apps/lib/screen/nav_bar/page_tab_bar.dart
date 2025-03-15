@@ -1,3 +1,4 @@
+import 'package:apps/screen/latihan_form/form_mahasiswa.dart';
 import 'package:apps/screen/nav_bar/page_grid_view.dart';
 import 'package:apps/screen/nav_bar/page_register.dart';
 import 'package:flutter/material.dart';
@@ -28,8 +29,12 @@ class _PageTabBarState extends State<PageTabBar> with SingleTickerProviderStateM
       ),
       body: TabBarView(
         controller: tabController,
-          children: [PageRegister(),PageGridView()]
+          children: [
+           PageRegister(),
+            PageGridView()],
+
       ),
+
       bottomNavigationBar: BottomAppBar(
         child: TabBar(
           controller: tabController,

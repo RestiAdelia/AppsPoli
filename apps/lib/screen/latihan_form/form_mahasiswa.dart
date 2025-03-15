@@ -1,40 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class PageRegister extends StatefulWidget {
-  const PageRegister({super.key});
+class FormMahasiswa extends StatefulWidget {
+  const FormMahasiswa({super.key});
 
   @override
-  State<PageRegister> createState() => _MyWidgetState();
+  State<FormMahasiswa> createState() => _MyWidgetState();
 }
 
-class _MyWidgetState extends State<PageRegister> {
-  TextEditingController fullname = TextEditingController();
-  TextEditingController username = TextEditingController();
-  TextEditingController email = TextEditingController();
-  TextEditingController tglLahir = TextEditingController();
-  TextEditingController password = TextEditingController();
-  String? valAgama, valJk, inputForm;
+class _MyWidgetState extends State<FormMahasiswa> {
+  TextEditingController nim = TextEditingController();
+  TextEditingController nama = TextEditingController();
+  TextEditingController notlpn = TextEditingController();
+  TextEditingController alamat = TextEditingController();
+
+  String? valjurusan, valprodi, inputForm;
   final _formKey = GlobalKey<FormState>();
 
-  Future selectData() async {
-    DateTime? picDate = await showDatePicker(
-      initialDate: DateTime.now(),
-      context: context,
-      firstDate: DateTime(1950),
-      lastDate: DateTime(2100),
-    );
-    if (picDate != null) {
-      tglLahir.text = DateFormat("dd-MM-yyyy").format(picDate);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Form(
         key: _formKey,
-          autovalidateMode: AutovalidateMode.onUserInteraction,
+        autovalidateMode: AutovalidateMode.onUserInteraction,
         child: Padding(
           padding: EdgeInsets.all(16),
           child: SingleChildScrollView(
@@ -46,45 +35,36 @@ class _MyWidgetState extends State<PageRegister> {
                 ),
                 SizedBox(height: 13),
                 CostumeInput(
-                  labelInput: 'Fullname',
-                  controller: fullname,
-                  hintText: 'Nindya',
+                  labelInput: 'NIM',
+                  controller: nim,
+                  hintText: '223****',
                   textInputType: TextInputType.text,
                 ),
                 SizedBox(height: 13),
                 CostumeInput(
-                  labelInput: 'UserName',
-                  controller: username,
-                  hintText: 'nndy',
+                  labelInput: 'Nama',
+                  controller: nama,
+                  hintText: 'Resti',
                   textInputType: TextInputType.text,
                 ),
                 SizedBox(height: 13),
                 CostumeInput(
-                  labelInput: 'email',
-                  controller: email,
-                  hintText: 'nndy@gmail',
+                  labelInput: 'No Telephone',
+                  controller: notlpn,
+                  hintText: '08*****',
                   textInputType: TextInputType.text,
                 ),
                 SizedBox(height: 13),
                 CostumeInput(
-                  labelInput: 'tanggal lahir',
-                  controller: tglLahir,
-                  hintText: '07-06-2005',
+                  labelInput: 'Alamat',
+                  controller: alamat,
+                  hintText: '08*****',
                   textInputType: TextInputType.text,
-                  onTap: () {
-                    selectData();
-                  },
                 ),
                 SizedBox(height: 13),
-                CostumeInput(
-                  labelInput: 'password',
-                  controller: password,
-                  hintText: '',
-                  textInputType: TextInputType.text,
-                  obscureText: true,
-                ),
+
                 SizedBox(height: 15),
-                Text("Pilih Agama", style: TextStyle(fontSize: 18)),
+                Text("Pilih Jurusan", style: TextStyle(fontSize: 18)),
                 SizedBox(height: 5),
                 Container(
                   decoration: BoxDecoration(
@@ -92,17 +72,17 @@ class _MyWidgetState extends State<PageRegister> {
                     borderRadius: BorderRadius.circular(10),
                   ),
                   child: DropdownButton(
-                    value: valAgama,
+                    value: valjurusan,
                     underline: Container(),
                     isExpanded: true,
                     items:
                     [
-                      'Islam',
-                      "Kristen Protestan",
-                      "Budha",
-                      "Konghucu",
-                      "Kristen katolik",
-                      "Hindu",
+                      'TI',
+                      "Mesin",
+                      "Elektro",
+                      "Sipil",
+                      "ADM ",
+                      "Bahasa Inggris",
                     ].map((e) {
                       return DropdownMenuItem(
                         value: e,
@@ -114,34 +94,54 @@ class _MyWidgetState extends State<PageRegister> {
                     }).toList(),
                     onChanged: (val) {
                       setState(() {
-                        valAgama = val;
+                        valjurusan = val;
                       });
                     },
                   ),
                 ),
                 SizedBox(height: 18),
-                Text('Jenis Kelamin', style: TextStyle(fontSize: 18)),
+                Text('Prodi ', style: TextStyle(fontSize: 18)),
                 SizedBox(height: 15),
                 Row(
                   children: [
                     Flexible(
                       child: CostumeRadio(
-                        groupValue: valJk.toString(),
-                        value: 'pria',
+                        groupValue: valprodi.toString(),
+                        value: 'Mi',
                         onChanged: (val) {
                           setState(() {
-                            valJk = val;
+                            valprodi = val;
                           });
                         },
                       ),
                     ),
                     Flexible(
                         child: CostumeRadio(
-                            groupValue: valJk.toString(),
-                            value: 'Perempuan',
+                            groupValue: valprodi.toString(),
+                            value: 'Tekom',
                             onChanged: (val){
                               setState(() {
-                                valJk = val;
+                                valprodi = val;
+                              });
+                            })
+                    ),
+                    Flexible(
+                        child: CostumeRadio(
+                            groupValue: valprodi.toString(),
+                            value: 'Sipil',
+                            onChanged: (val){
+                              setState(() {
+                                valprodi = val;
+                              });
+                            })
+                    ),
+                    Flexible(
+                        child: CostumeRadio(
+                            groupValue: valprodi.toString(),
+                            value: 'Trpl',
+                            onChanged: (val){
+                              setState(() {
+                                valprodi = val;
                               });
                             })
                     ),
@@ -156,19 +156,19 @@ class _MyWidgetState extends State<PageRegister> {
                     setState(() {
                       if (_formKey.currentState!.validate()) {
                         //cek input agama dan jk
-                        if (valJk != null && valAgama != null) {
-                          inputForm = "Fullname : ${fullname.text}\n"
-                              "Username : ${username.text}\n"
-                              "Email : ${email.text}\n"
-                              "Tanggal Lahir : ${tglLahir.text}\n"
-                              "Agama : ${valAgama.toString()}\n"
-                              "Jenis Kelamin : ${valJk.toString()}\n";
+                        if (valjurusan != null && valprodi != null) {
+                          inputForm = "NIM : ${nim.text}\n"
+                              "Nama : ${nama.text}\n"
+                              "No Telphone : ${notlpn.text}\n"
+                              "Alamat : ${alamat.text}\n"
+                              "Jurusan : ${valjurusan.toString()}\n"
+                              "Prodi : ${valprodi.toString()}\n";
                           ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text(inputForm.toString()))
                           );
                         }else{
                           ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Silahkan Pilih Agama dan Jenis Kelamin"))
+                              SnackBar(content: Text("Silahkan Pilih Jurusan dan Dan Prodi"))
                           );
                         }
                       }
