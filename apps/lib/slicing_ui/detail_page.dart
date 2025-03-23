@@ -59,7 +59,7 @@ class _StaffPageState extends State<DetailPage> {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage("gambar/Ellipse.png"),
+                  backgroundImage: AssetImage("gambar/48px.png"),
                 ),
                 SizedBox(width: 12),
                 Expanded(
