@@ -32,25 +32,30 @@ class _RegisterPageState extends State<RegisterPage> {
       });
     }
   }
-
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
-      // Navigasi ke halaman ProfilePage dengan data yang diinput
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ProfilePage(
-            name: nameController.text,
-            email: emailController.text,
-            phone: phoneController.text,
-            birthDate: birthDateController.text,
+      // Menampilkan pesan dengan data yang diinput menggunakan SnackBar
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            "Nama: ${nameController.text}\n"
+                "Email: ${emailController.text}\n"
+                "Telepon: ${phoneController.text}\n"
+                "Tanggal Lahir: ${birthDateController.text}",
           ),
+          duration: Duration(seconds: 2), // Tampilkan pesan selama 2 detik
         ),
       );
+      // Setelah 2 detik, pindah ke halaman LoginPage
+      Future.delayed(Duration(seconds: 2), () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => LoginPage()),
+        );
+      });
     }
   }
-
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
