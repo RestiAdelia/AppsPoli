@@ -1,3 +1,7 @@
+import 'package:apps/map/map_multi_maker_sekolah.dart';
+import 'package:apps/map/map_multi_marker_page.dart';
+import 'package:apps/map/map_page.dart';
+import 'package:apps/map/mappnp.dart';
 import 'package:apps/screen/nav_bar/page_tab_bar.dart';
 import 'package:apps/slicing_ui/splash_page.dart';
 import 'package:flutter/material.dart';
@@ -98,6 +102,78 @@ class PageUtama extends StatelessWidget {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>MapPage()),
+                  );
+                },
+                elevation: 18.0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                color: Colors.blue,
+                child: Text(
+                  'Maps Flutter',
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>MapPnp()),
+                  );
+                },
+                elevation: 18.0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                color: Colors.blue,
+                child: Text(
+                  'PNP Maps',
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>MapMultiMarkerPage()),
+                  );
+                },
+                elevation: 18.0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                color: Colors.blue,
+                child: Text(
+                  'Multi Maker Maps',
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>MapMultiMarkerPageSekolah()),
+                  );
+                },
+                elevation: 18.0,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                color: Colors.blue,
+                child: Text(
+                  'Sekolah Maps',
+                  style: TextStyle(fontSize: 14, color: Colors.white),
+                ),
+              ),
+            )
           ],
         ),
       ),
