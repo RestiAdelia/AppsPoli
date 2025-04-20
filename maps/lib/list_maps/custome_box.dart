@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CustomBoxMap extends StatelessWidget {
-  final String name, gambarAsset;
+  final String name, gambarAsset,descripsi;
   final double latitude, longitude, rating;
   final VoidCallback onPressed;
 
@@ -14,7 +14,7 @@ class CustomBoxMap extends StatelessWidget {
     required this.longitude,
     required this.rating,
     required this.onPressed,
-    required String descripsi,
+    required this.descripsi,
 
   });
 

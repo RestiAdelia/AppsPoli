@@ -37,16 +37,16 @@ class MainPage extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.orange, // Warna teks tombol
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), // Padding tombol
+                backgroundColor: Colors.orange,
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // Sudut tombol melengkung
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                shadowColor: Colors.black, // Warna bayangan tombol
-                elevation: 10, // Memberikan efek bayangan
+                shadowColor: Colors.black,
+                elevation: 10,
               ),
               onPressed: () {
-                // Arahkan ke MyHomePage
+
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyHomePage()),
@@ -56,21 +56,21 @@ class MainPage extends StatelessWidget {
                 'Maps',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 12, // Ukuran teks
+                  fontSize: 12,
                 ),
               ),
             ),
-            SizedBox(height: 10), // Memberi jarak antara tombol
+            SizedBox(height: 10),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.orange, // Warna teks tombol
+                backgroundColor: Colors.orange,
                 padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), // Padding tombol
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10), // Sudut tombol melengkung
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                shadowColor: Colors.black, // Warna bayangan tombol
-                elevation: 10, // Memberikan efek bayangan
+                shadowColor: Colors.black,
+                elevation: 10,
               ),
               onPressed: () {
                 // Arahkan ke ListPage
@@ -80,7 +80,7 @@ class MainPage extends StatelessWidget {
                 );
               },
               child: Text(
-                'List Maps Page',
+                'List Maps Rumah Sakit',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 12, // Ukuran teks

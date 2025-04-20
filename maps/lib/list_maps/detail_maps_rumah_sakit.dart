@@ -45,7 +45,6 @@ class DetailMapsRumahSakit extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Nama
                   Text(
                     name,
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -59,18 +58,12 @@ class DetailMapsRumahSakit extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 16),
-                  // Keterangan / Deskripsi
                   Text(
                     description,
                     style: TextStyle(fontSize: 16),
                   ),
 
-
-                  // Lat & Long
-
-
                   SizedBox(height: 20),
-
                   // Google Map View
                   SizedBox(
                     height: 300,
