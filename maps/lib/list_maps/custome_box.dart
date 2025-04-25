@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CustomBoxMap extends StatelessWidget {
-  final String name, gambarAsset,descripsi,harga;
+  final String name, gambarAsset, descripsi, harga;
   final double latitude, longitude, rating;
   final VoidCallback onPressed;
 
@@ -16,7 +16,6 @@ class CustomBoxMap extends StatelessWidget {
     required this.onPressed,
     required this.descripsi,
     required this.harga,
-
   });
 
   @override
@@ -36,10 +35,7 @@ class CustomBoxMap extends StatelessWidget {
             width: double.infinity,
             child: ClipRRect(
               borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-              child: Image.asset(
-                gambarAsset,
-                fit: BoxFit.cover,
-              ),
+              child: Image.asset(gambarAsset, fit: BoxFit.cover),
             ),
           ),
           Padding(
@@ -55,15 +51,13 @@ class CustomBoxMap extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text(
-                      '$rating',
-                      style: TextStyle(fontSize: 12),
-                    ),
+                    Text('$rating', style: TextStyle(fontSize: 12)),
                     SizedBox(width: 5),
                     RatingBarIndicator(
                       rating: rating,
-                      itemBuilder: (context, index) =>
-                          Icon(Icons.star, color: Colors.amber),
+                      itemBuilder:
+                          (context, index) =>
+                              Icon(Icons.star, color: Colors.amber),
                       itemCount: 5,
                       itemSize: 14,
                       direction: Axis.horizontal,
@@ -71,10 +65,7 @@ class CustomBoxMap extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 6),
-                Text(
-                  harga,
-                  style: TextStyle(color: Colors.red, fontSize: 12),
-                ),
+                Text(harga, style: TextStyle(color: Colors.red, fontSize: 12)),
                 SizedBox(height: 8),
                 Center(
                   child: ElevatedButton(
@@ -85,10 +76,10 @@ class CustomBoxMap extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                      onPressed:(){
-                        onPressed.call();
-                      },
-                      child: Text('VIEW'),
+                    onPressed: () {
+                      onPressed.call();
+                    },
+                    child: Text('VIEW'),
                   ),
                 ),
               ],

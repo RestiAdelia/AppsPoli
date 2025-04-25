@@ -15,13 +15,11 @@ class MapScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(location.name,style: TextStyle(color:Colors.white),),
-        backgroundColor: Colors.blue,),
+        title: Text(location.name, style: TextStyle(color: Colors.white)),
+        backgroundColor: Colors.blue,
+      ),
       body: GoogleMap(
-        initialCameraPosition: CameraPosition(
-          target: target,
-          zoom: 15,
-        ),
+        initialCameraPosition: CameraPosition(target: target, zoom: 15),
         markers: {
           Marker(
             markerId: MarkerId(location.name),
@@ -29,33 +27,35 @@ class MapScreen extends StatelessWidget {
             onTap: () {
               showDialog(
                 context: context,
-                builder: (context) => AlertDialog(
-                  content: CustomBoxMap(
-                    name: location.name,
-                    gambarAsset: location.gambarAsset,
-                    harga:location.harga,
-                    rating: location.rating,
-                    latitude: location.latitude,
-                    longitude: location.longitude,
-                    descripsi: location.descripsi,
-                    onPressed: () {
-                      Navigator.pop(context); // tutup dialog
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => DetailMapsRumahSakit(
-                            name: location.name,
-                            imageAsset: location.gambarAsset,
-                            harga: location.harga,
-                            latitude: location.latitude,
-                            longitude: location.longitude,
-                            description: location.descripsi,
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                builder:
+                    (context) => AlertDialog(
+                      content: CustomBoxMap(
+                        name: location.name,
+                        gambarAsset: location.gambarAsset,
+                        harga: location.harga,
+                        rating: location.rating,
+                        latitude: location.latitude,
+                        longitude: location.longitude,
+                        descripsi: location.descripsi,
+                        onPressed: () {
+                          Navigator.pop(context);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (_) => DetailMapsRumahSakit(
+                                    name: location.name,
+                                    imageAsset: location.gambarAsset,
+                                    harga: location.harga,
+                                    latitude: location.latitude,
+                                    longitude: location.longitude,
+                                    description: location.descripsi,
+                                  ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
               );
             },
           ),

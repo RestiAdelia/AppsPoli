@@ -14,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final CustomInfoWindowController _customInfoWindowController =
-  CustomInfoWindowController();
+      CustomInfoWindowController();
 
   //tipe map
   MapType _mapType = MapType.normal;
@@ -26,7 +26,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _onMapTypeButtonPressed() {
     setState(() {
       _mapType =
-      _mapType == MapType.normal ? MapType.satellite : MapType.normal;
+          _mapType == MapType.normal ? MapType.satellite : MapType.normal;
     });
   }
 
@@ -40,8 +40,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   //Standard
   void _standardStyle() => setState(() => _styleMap = null);
+
   //Dark
   void _darkStyle() => _loadFileStyleMap('assets/style_map/style_dark.json');
+
   //Retro
   void _retroStyle() => _loadFileStyleMap('assets/style_map/style_retro.json');
 
@@ -54,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'lng': 100.36088842024157,
       'rating': 4.1,
       'keterangan':
-      'Berada di jalan yang ramai dengan pertokoan dan restoran, hotel kontemporer ini berjarak 18 menit berjalan kaki dari Masjid Raya Sumatra Barat, dan 5 km baik dari Pantai Padang maupun Stasiun Padang.',
+          'Berada di jalan yang ramai dengan pertokoan dan restoran, hotel kontemporer ini berjarak 18 menit berjalan kaki dari Masjid Raya Sumatra Barat, dan 5 km baik dari Pantai Padang maupun Stasiun Padang.',
     },
 
     {
@@ -65,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       'lng': 100.35801845233048,
       'rating': 4.1,
       'keterangan':
-      'Berada di jalan yang ramai dengan pertokoan dan restoran, hotel kontemporer ini berjarak 18 menit berjalan kaki dari Masjid Raya Sumatra Barat, dan 5 km baik dari Pantai Padang maupun Stasiun Padang.',
+          'Berada di jalan yang ramai dengan pertokoan dan restoran, hotel kontemporer ini berjarak 18 menit berjalan kaki dari Masjid Raya Sumatra Barat, dan 5 km baik dari Pantai Padang maupun Stasiun Padang.',
     },
   ];
 
@@ -83,16 +85,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 gambar: hotel['gambar'],
                 namaTempat: hotel['namaTempat'],
                 rating: hotel['rating'],
-                harga: hotel['harga'], onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) => DetailHotelPage(
-                    nama: hotel['namaTempat'],
-                    gambar: hotel['gambar'],
-                    harga: hotel['harga'],
-                    rating: hotel['rating'],
-                    keterangan: hotel['keterangan'],
-
-                  )));
-              },
+                harga: hotel['harga'],
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (_) => DetailHotelPage(
+                            nama: hotel['namaTempat'],
+                            gambar: hotel['gambar'],
+                            harga: hotel['harga'],
+                            rating: hotel['rating'],
+                            keterangan: hotel['keterangan'],
+                          ),
+                    ),
+                  );
+                },
               ),
               koordinat,
             );
@@ -140,9 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: _onMapTypeButtonPressed,
                   backgroundColor: Colors.green,
                   child:
-                  _mapType == MapType.normal
-                      ? Icon(Icons.map, color: Colors.white)
-                      : Icon(Icons.satellite_alt, color: Colors.white),
+                      _mapType == MapType.normal
+                          ? Icon(Icons.map, color: Colors.white)
+                          : Icon(Icons.satellite_alt, color: Colors.white),
                 ),
                 SizedBox(height: 10),
                 FloatingActionButton(

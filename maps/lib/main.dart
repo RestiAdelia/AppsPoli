@@ -26,10 +26,7 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: Text('Maps MI2A'),
-      ),
+      appBar: AppBar(backgroundColor: Colors.blue, title: Text('Maps MI2A')),
       body: Container(
         color: Colors.blue[50],
         padding: const EdgeInsets.all(16.0),
@@ -39,10 +36,7 @@ class MainPage extends StatelessWidget {
           children: <Widget>[
             Text(
               'Welcome to Application Maps!',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 30),
@@ -65,10 +59,7 @@ class MainPage extends StatelessWidget {
               },
               child: Text(
                 'Maps',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
             ),
             SizedBox(height: 10),
@@ -91,10 +82,7 @@ class MainPage extends StatelessWidget {
               },
               child: Text(
                 'List Maps Rumah Sakit',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
-                ),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
             ),
           ],

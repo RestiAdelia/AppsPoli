@@ -19,10 +19,7 @@ class DetailHotelPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(nama),
-        backgroundColor: Colors.blue,
-      ),
+      appBar: AppBar(title: Text(nama), backgroundColor: Colors.blue),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,13 +58,10 @@ class DetailHotelPage extends StatelessWidget {
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 8),
-                  Text(
-                    keterangan,
-                    style: TextStyle(fontSize: 14, height: 1.4),
-                  ),
+                  Text(keterangan, style: TextStyle(fontSize: 14, height: 1.4)),
                 ],
               ),
-            )
+            ),
           ],
         ),
       ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CustomBoxMap extends StatelessWidget {
-  final String gambar,namaTempat,harga;
+  final String gambar, namaTempat, harga;
   final double rating;
   final VoidCallback onPressed;
 
@@ -10,7 +10,9 @@ class CustomBoxMap extends StatelessWidget {
     super.key,
     required this.gambar,
     required this.namaTempat,
-    required this.rating, required this.harga, required this.onPressed,
+    required this.rating,
+    required this.harga,
+    required this.onPressed,
   });
 
   @override
@@ -19,50 +21,59 @@ class CustomBoxMap extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
-        boxShadow: [BoxShadow(color: Colors.black,blurRadius: 8)],
+        boxShadow: [BoxShadow(color: Colors.black, blurRadius: 8)],
       ),
       child: Column(
         children: [
-          Expanded(child: ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-            child: Image.asset(
-              gambar ,
-              width: 280,
-              height: 80,
-              fit: BoxFit.cover,),
-          )
+          Expanded(
+            child: ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
+              child: Image.asset(
+                gambar,
+                width: 280,
+                height: 80,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          Padding(padding: EdgeInsets.all(8),
+          Padding(
+            padding: EdgeInsets.all(8),
             child: Column(
               children: [
-                Text(namaTempat,style:
-                TextStyle(fontWeight:
-                FontWeight.bold,fontSize: 10),
+                Text(
+                  namaTempat,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text('$rating',style: TextStyle(fontSize: 10),),
+                    Text('$rating', style: TextStyle(fontSize: 10)),
                     SizedBox(width: 5),
                     RatingBarIndicator(
                       rating: rating,
-                      itemBuilder: (context,index)=>Icon(Icons.star,color: Colors.amber),
+                      itemBuilder:
+                          (context, index) =>
+                              Icon(Icons.star, color: Colors.amber),
                       itemCount: 5,
                       itemSize: 15,
                       direction: Axis.horizontal,
                     ),
                   ],
                 ),
-                Text(harga,style: TextStyle(color: Colors.green[700],fontSize: 12),),
+                Text(
+                  harga,
+                  style: TextStyle(color: Colors.green[700], fontSize: 12),
+                ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.red,
                     foregroundColor: Colors.red,
                   ),
-                    onPressed:(){
-                  onPressed.call();
-                } ,
-                    child: Text('VIEW', style: TextStyle(color: Colors.white),))
+                  onPressed: () {
+                    onPressed.call();
+                  },
+                  child: Text('VIEW', style: TextStyle(color: Colors.white)),
+                ),
               ],
             ),
           ),
