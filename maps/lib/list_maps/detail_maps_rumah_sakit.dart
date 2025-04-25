@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class DetailMapsRumahSakit extends StatelessWidget {
-  final String name;
+  final String name,harga;
   final String imageAsset;
   final double latitude;
   final double longitude;
@@ -15,6 +15,7 @@ class DetailMapsRumahSakit extends StatelessWidget {
     required this.latitude,
     required this.longitude,
     required this.description,
+    required this.harga,
   }) : super(key: key);
 
   @override
@@ -23,7 +24,8 @@ class DetailMapsRumahSakit extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(name),
+        backgroundColor: Colors.blue,
+        title: Text(name,style: TextStyle(color: Colors.white),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -58,6 +60,10 @@ class DetailMapsRumahSakit extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 16),
+                  Text(
+                    harga,
+                    style: TextStyle(fontSize: 16),
+                  ),
                   Text(
                     description,
                     style: TextStyle(fontSize: 16),

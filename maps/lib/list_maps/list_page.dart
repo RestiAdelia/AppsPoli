@@ -4,6 +4,7 @@ import 'maps_screen.dart';
 class LocationItem {
   final String name;
   final String gambarAsset;
+  final String harga;
   final double latitude;
   final double longitude;
   final double rating;
@@ -11,6 +12,7 @@ class LocationItem {
 
   LocationItem( {
     required this.name,
+    required this.harga,
     required this.gambarAsset,
     required this.latitude,
     required this.longitude,
@@ -23,7 +25,8 @@ class ListPage extends StatelessWidget {
   final List<LocationItem> locations = [
     LocationItem(
       name: 'RSUP Dr. M. Djamil Padang',
-      gambarAsset: 'assets/image_maps/RsMdjamil.png',
+      gambarAsset: 'assets/image_maps/rs_mdjamil.png',
+      harga :"Rp.150.000",
       latitude: -0.9431897240289424,
       longitude: 100.36695996574402,
       rating: 4.7,
@@ -31,23 +34,26 @@ class ListPage extends StatelessWidget {
     ),
     LocationItem(
       name: 'RSUP Universitas Andalas',
-      gambarAsset: 'assets/image_maps/RsUnand.jpg',
-      latitude: -0.9144,
-      longitude: 100.4645,
+      gambarAsset: 'assets/image_maps/rs_unand.jpg',
+        harga :"Rp.120.000",
+      latitude: -0.9185020497138118,
+      longitude: 100.45711816856962,
       rating: 4.5,
         descripsi: "Rumah Sakit Universitas Andalas adalah rumah sakit pendidikan yang terletak di kompleks Universitas Andalas, Padang. Dilengkapi dengan fasilitas modern dan tenaga medis profesional, RS Unand melayani berbagai kebutuhan kesehatan masyarakat serta sebagai sarana pendidikan bagi mahasiswa kedokteran."
     ),
     LocationItem(
       name: 'Rumah Sakit Bhayangkara Padang',
-      gambarAsset: 'assets/image_maps/RsBayangkara.png',
-      latitude: -0.9211,
+      gambarAsset: 'assets/image_maps/rs_bayangkara.png',
+        harga :"Rp.160.000",
+        latitude: -0.9211,
       longitude: 100.3674,
       rating: 4.6,
         descripsi: "Rumah Sakit Bhayangkara Padang merupakan rumah sakit milik Kepolisian Negara Republik Indonesia (Polri) yang terbuka untuk umum. Selain melayani anggota Polri dan keluarganya, rumah sakit ini juga melayani masyarakat dengan fasilitas medis yang memadai dan pelayanan yang cepat dan sigap, terutama untuk penanganan kasus trauma dan kedaruratan."
     ),
     LocationItem(
       name: 'Rumah Sakit Ibnu Sina Padang',
-      gambarAsset: 'assets/image_maps/RsIbnusina.png',
+      gambarAsset: 'assets/image_maps/rs_ibnusina.png',
+        harga :"Rp.100.000",
       latitude: -0.9285,
       longitude: 100.3659,
       rating: 4.4,
@@ -55,7 +61,8 @@ class ListPage extends StatelessWidget {
     ),
     LocationItem(
       name: 'Rumah Sakit YosoDarsso',
-      gambarAsset: 'assets/image_maps/RsYosodarso.jpg',
+      gambarAsset: 'assets/image_maps/rs_yosodarso.jpg',
+        harga :"Rp.110.000",
       latitude: -0.9346101342856422,
       longitude: 100.36247210700412,
       rating: 4.8,
@@ -64,6 +71,7 @@ class ListPage extends StatelessWidget {
     LocationItem(
         name: 'Rumah Sakit Umum Aisiyah',
         gambarAsset: 'assets/image_maps/aisiyah.jpg',
+        harga :"Rp.130.000",
         latitude: -0.9457666213429142,
         longitude:  100.36358790593988,
         rating: 4.2,
@@ -72,6 +80,7 @@ class ListPage extends StatelessWidget {
     LocationItem(
         name: 'Rumah Sakit Semen Padang Hospital',
         gambarAsset: 'assets/image_maps/semenpadang.jpg',
+        harga :"Rp.125.000",
         latitude: -0.9403875751554237,
         longitude: 100.39947599953312,
         rating: 4.7,
@@ -80,6 +89,7 @@ class ListPage extends StatelessWidget {
     LocationItem(
         name: 'Rumah Sakit Umum Daerah dr. Rasidin',
         gambarAsset: 'assets/image_maps/rasidin.jpg',
+        harga :"Rp.100.000",
         latitude: -0.8781841499965528,
         longitude: 100.39533327571941,
         rating: 4.3,
@@ -87,7 +97,8 @@ class ListPage extends StatelessWidget {
     ),
     LocationItem(
         name: 'Rumah Sakit Tentara dr. Reksodiwiryo Padang.',
-        gambarAsset: 'assets/image_maps/RsTentara.jpg',
+        gambarAsset: 'assets/image_maps/rs_tentara.jpg',
+        harga :"Rp.125.000",
         latitude: -0.9495674790139361,
         longitude:  100.37254008365733,
         rating: 4.4,
@@ -95,7 +106,8 @@ class ListPage extends StatelessWidget {
     ),
     LocationItem(
         name: 'Rumah Sakit Hermina Padang',
-        gambarAsset: 'assets/image_maps/RsHermina.jpg',
+        gambarAsset: 'assets/image_maps/rs_hermina.jpg',
+        harga :"Rp.90.000",
         latitude: -0.9163878045967953,
         longitude:  100.36061573022043,
         rating: 4.5,
@@ -106,53 +118,80 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Daftar Rumah Sakit di Padang')),
-      body: ListView.builder(
-        itemCount: locations.length,
-        itemBuilder: (context, index) {
-          final loc = locations[index];
-          return Card(
-            margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-            child: ListTile(
-              leading: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  loc.gambarAsset,
-                  width: 60,
-                  height: 60,
-                  fit: BoxFit.cover,
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+          title: Text('Daftar Rumah Sakit di Padang',
+            style: TextStyle(fontSize: 20, color: Colors.white),)
+      ),
+      body: Container(
+        color: Colors.blue[50],
+        child: ListView.builder(
+          itemCount: locations.length,
+          itemBuilder: (context, index) {
+            final loc = locations[index];
+            return Card(
+              margin: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+              child: ListTile(
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    loc.gambarAsset,
+                    width: 60,
+                    height: 60,
+                    fit: BoxFit.cover,
+                  ),
                 ),
-              ),
-              title: Text(loc.name),
-              subtitle: Row(
-                children: [
-                  ...List.generate(5, (i) {
-                    return Icon(
-                      i < loc.rating.floor()
-                          ? Icons.star
-                          : Icons.star_border,
-                      color: Colors.orange,
-                      size: 16,
-                    );
-                  }),
-                  SizedBox(width: 6),
-                  Text(
-                    loc.rating.toString(),
-                    style: TextStyle(fontSize: 12),
+                title: Text(
+                  loc.name,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
+                ),
+                subtitle: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      children: [
+                        ...List.generate(5, (i) {
+                          return Icon(
+                            i < loc.rating.floor()
+                                ? Icons.star
+                                : Icons.star_border,
+                            color: Colors.orange,
+                            size: 16,
+                          );
+                        }),
+                        SizedBox(width: 6),
+                        Text(
+                          loc.rating.toString(),
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 4),
+                    Text(
+                      loc.harga,
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ],
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => MapScreen(location: loc),
+                    ),
+                  );
+                },
               ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => MapScreen(location: loc),
-                  ),
-                );
-              },
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

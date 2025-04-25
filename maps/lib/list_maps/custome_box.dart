@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class CustomBoxMap extends StatelessWidget {
-  final String name, gambarAsset,descripsi;
+  final String name, gambarAsset,descripsi,harga;
   final double latitude, longitude, rating;
   final VoidCallback onPressed;
 
@@ -15,6 +15,7 @@ class CustomBoxMap extends StatelessWidget {
     required this.rating,
     required this.onPressed,
     required this.descripsi,
+    required this.harga,
 
   });
 
@@ -30,7 +31,6 @@ class CustomBoxMap extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Ganti Expanded dengan SizedBox
           SizedBox(
             height: 120,
             width: double.infinity,
@@ -53,7 +53,7 @@ class CustomBoxMap extends StatelessWidget {
                 ),
                 SizedBox(height: 4),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       '$rating',
@@ -70,8 +70,12 @@ class CustomBoxMap extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 6),
+                Text(
+                  harga,
+                  style: TextStyle(color: Colors.red, fontSize: 12),
+                ),
                 SizedBox(height: 8),
-
                 Center(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(

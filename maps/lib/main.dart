@@ -9,13 +9,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Project Maps',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true, // Optional: pakai Material 3
       ),
       home: MainPage(),
     );
@@ -27,18 +27,30 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
-        title: Text('Maps Application'),
+        backgroundColor: Colors.blue,
+        title: Text('Maps MI2A'),
       ),
-      body: Center(
+      body: Container(
+        color: Colors.blue[50],
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
+            Text(
+              'Welcome to Application Maps!',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 30),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.orange,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                backgroundColor: Colors.blueGrey,
+                padding: EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -46,7 +58,6 @@ class MainPage extends StatelessWidget {
                 elevation: 10,
               ),
               onPressed: () {
-
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => MyHomePage()),
@@ -56,7 +67,7 @@ class MainPage extends StatelessWidget {
                 'Maps',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 12,
+                  fontSize: 14,
                 ),
               ),
             ),
@@ -64,8 +75,8 @@ class MainPage extends StatelessWidget {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.orange,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15), // Padding tombol
+                backgroundColor: Colors.blueGrey,
+                padding: EdgeInsets.symmetric(vertical: 15),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -73,7 +84,6 @@ class MainPage extends StatelessWidget {
                 elevation: 10,
               ),
               onPressed: () {
-                // Arahkan ke ListPage
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => ListPage()),
@@ -83,7 +93,7 @@ class MainPage extends StatelessWidget {
                 'List Maps Rumah Sakit',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 12, // Ukuran teks
+                  fontSize: 14,
                 ),
               ),
             ),

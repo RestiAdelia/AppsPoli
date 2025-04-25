@@ -14,7 +14,9 @@ class MapScreen extends StatelessWidget {
     final LatLng target = LatLng(location.latitude, location.longitude);
 
     return Scaffold(
-      appBar: AppBar(title: Text(location.name)),
+      appBar: AppBar(
+        title: Text(location.name,style: TextStyle(color:Colors.white),),
+        backgroundColor: Colors.blue,),
       body: GoogleMap(
         initialCameraPosition: CameraPosition(
           target: target,
@@ -31,6 +33,7 @@ class MapScreen extends StatelessWidget {
                   content: CustomBoxMap(
                     name: location.name,
                     gambarAsset: location.gambarAsset,
+                    harga:location.harga,
                     rating: location.rating,
                     latitude: location.latitude,
                     longitude: location.longitude,
@@ -43,6 +46,7 @@ class MapScreen extends StatelessWidget {
                           builder: (_) => DetailMapsRumahSakit(
                             name: location.name,
                             imageAsset: location.gambarAsset,
+                            harga: location.harga,
                             latitude: location.latitude,
                             longitude: location.longitude,
                             description: location.descripsi,
