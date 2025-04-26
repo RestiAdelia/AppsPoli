@@ -168,7 +168,9 @@ class MyHomePage extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,
-                        color: Colors.red,
+                          color: loc.status.toLowerCase() == "buka"
+                              ? Colors.green
+                              : Colors.red,
                       ),
                     ),
                   ],

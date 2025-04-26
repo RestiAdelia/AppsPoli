@@ -50,6 +50,11 @@ class DetailResto extends StatelessWidget {
                     ? Colors.green
                     : Colors.red,
               ),
+
+            ),
+            Text(
+              'Alamat: ${location.alamat}',
+              style: TextStyle(fontSize: 16),
             ),
           ],
         ),
