@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uts_3006/login_page.dart';
+import 'package:her_3006/login.dart';
+
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -14,7 +15,7 @@ class StartScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                'images/welcome.jpeg',
+                'images/b.jpg',
                 height: 200,
               ),
               const SizedBox(height: 20),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:maps/list_maps/list_page.dart';
+import 'package:maps/list_maps/maps_list/list_page.dart';
 import 'package:maps/pages/my_home_page.dart';
+import 'list_maps/maps_list/maps_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -82,6 +84,30 @@ class MainPage extends StatelessWidget {
               },
               child: Text(
                 'List Maps Rumah Sakit',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+              ),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blueGrey,
+                padding: EdgeInsets.symmetric(vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                shadowColor: Colors.black,
+                elevation: 10,
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) =>ListPageMaps(),
+                )
+                );
+              },
+              child: Text(
+                ' Maps Rumah Sakit Maker',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
               ),
             ),
